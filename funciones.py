@@ -9,6 +9,7 @@ def guardar(peliculas):
         print(f"-----------Guardar {i} Pelicula--------------")
         nombre = input("Ingrese el nombre de la pelicula: ").lower()
         año = int(input("Ingrese el año de estreno: "))
+        
         peliculas.append({
             "nombre": nombre,
             "año": año
