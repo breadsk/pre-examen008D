@@ -1,24 +1,28 @@
-from funciones import guardar,menu,mostrar
-
+from funciones import guardar,mostrar,menu,buscar,eliminar
 peliculas = []
+encontrado = False
 while True:
-    menu()
-    opt = int(input("Ingrese una opcion: "))
-    if opt == 1:
-        print("Guardar")
-        cantidad = int(input("Ingrese la cantidad de peliculas a guardar: "))
+    try:
+        menu()
+        opt = int(input("Ingrese la opcion: "))
+        if opt == 1:
+            print("Guardar")        
+            guardar(peliculas)
+            print("Peliculas guardadas exitosamente!!!!")        
+        elif opt == 2:
+            print("Mostrar")
+            mostrar(peliculas)        
+        elif opt == 3:
+            print("Eliminar")
+            eliminar(peliculas)
+        elif opt == 4:
+            print("Buscar")
+            buscar(peliculas)
+        elif opt == 5:
+            print("Salir")
+            break
+    except ValueError:
+        print("Solo valores numericos")
 
-        for i in range(1,cantidad + 1):    
-            nombre = input(f"Ingrese el nombre de la {i} pelicula: ")
-            tipo = input("Ingrese el tipo de la pelicula: ")
-            publicacion = input("Ingrese el año de su publicación: ")
-            guardar(nombre,tipo,publicacion,peliculas,i)
-    elif opt == 2:
-        mostrar(peliculas)
-    elif opt == 3:
-        print("Buscar")
-    elif opt == 4:
-        print("Eliminar")
-    elif opt == 5:
-        break
-        
+
+print("Gracias, vuelva pronto, mande fruta")
